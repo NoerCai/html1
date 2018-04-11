@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+ <style type="text/css">
+ *{
+ 	margin: 0;
+ 	padding: 0;
+ }
+ input{
+ 	margin-left:10px;
+ 	margin-top: 10px;
+ }
+ li{
+ 	display: inline-block;
+ 	background-color: #f00;
+ 	margin-left:10px;
+ 	padding:5px;
+ }
+ </style>
+ <body>
+ 	<label>请输入数字：<input type="text" id="text" value=""></label>
+ 	<button id="left_join">左侧入</button>
+ 	<button id="right_join">右侧入</button>
+ 	<button id="left_to">左侧出</button>
+ 	<button id="right_to">右侧出</button>
+ 	<ul id="ul">
+ 		<li>10</li>
+ 		<li>3</li>
+ 		<li>7</li>
+ 		<li>12</li>
+ 		<li>11</li>
+ 		<li>30</li>
+ 	</ul>
+ <script>
+ 	var left_join = document.getElementById("left_join");
+ 	var right_join = document.getElementById("right_join");
+ 	var left_to = document.getElementById("left_to");
+ 	var right_to = document.getElementById("right_to");
+ 	var ul=document.getElementById("ul");
+ 	var text=document.getElementById("text"); 
+
+	left_join.onclick = function (){
+		var li_text = document.createTextNode(text.value);
+		var li = document.createElement("li");
+		li.appendChild(li_text);
+		ul.insertBefore(li,ul.firstChild);
+	}
+	right_join.onclick = function (){
+		var li_text = document.createTextNode(text.value);
+		var li = document.createElement("li");
+		li.appendChild(li_text);
+		ul.appendChild(li);
+	}
+	left_to.onclick = function (){
+		ul.firstChild.remove();
+	}
+	right_to.onclick = function (){
+		ul.lastChild.remove();
+	}
+ </script>
+ </body>
+ </html>
